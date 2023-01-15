@@ -1,0 +1,8 @@
+  <%= link_to 'ホーム', root_path%>
+<p> こんにちは、<%= current_user.email %> </p>
+<% if user_signed_in? %>
+  <%= link_to 'サインアウト', destroy_user_session_path%>
+<% else %>
+  <%= link_to 'サインイン', new_user_session_path %>
+  <%= link_to 'ユーザ登録', new_user_registration_path %>
+<% end%>
