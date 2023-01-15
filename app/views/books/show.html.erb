@@ -7,6 +7,8 @@
   <strong>Number of pages:</strong>
   <%= @book.number_of_pages %>
 </p>
-<%= image_tag(@book.image)%>
+<% if !@book.image.nil?%>
+  <%= image_tag(@book.image)%>
+<% end %>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
