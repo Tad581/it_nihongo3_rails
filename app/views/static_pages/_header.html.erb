@@ -1,5 +1,5 @@
   <%= link_to 'ホーム', root_path%>
-<p> こんにちは、<%= current_user.email %> </p>
+<p> こんにちは、<%= link_to current_user.email, users_show_path %></p>
 <% if user_signed_in? %>
   <%= link_to 'サインアウト', destroy_user_session_path%>
 <% else %>
