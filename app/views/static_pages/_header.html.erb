@@ -1,7 +1,9 @@
   <%= link_to 'ホーム', root_path%>
 <% if user_signed_in? %>
   <p> こんにちは、<%= link_to current_user.name, users_show_path %></p>
-  <%= image_tag current_user.image %>
+  <% if current_user.image.present?%>
+    <%= image_tag current_user.image %>
+  <% end %>
   <%= link_to 'サインアウト', destroy_user_session_path%>
 <% else %>
   <%= link_to 'サインイン', new_user_session_path %>
