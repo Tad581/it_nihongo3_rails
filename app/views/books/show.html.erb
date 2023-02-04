@@ -25,5 +25,11 @@
     <%= form.submit %>
   </div>
 <% end %>
+<p>Review list</p>
+<ul>
+  <% @book.book_reviews.reverse.each do |review| %>
+    <li><%= review.review %> (<%= review.user_id %>) </li>
+  <% end %>
+</ul>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

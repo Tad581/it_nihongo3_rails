@@ -1,6 +1,6 @@
 class BookReviewsController < ApplicationController
-  before_action :set_book_review, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :set_book_review, only: %i[ show edit update destroy ]
 
   # GET /book_reviews or /book_reviews.json
   def index
@@ -23,10 +23,9 @@ class BookReviewsController < ApplicationController
   # POST /book_reviews or /book_reviews.json
   def create
     @book_review = BookReview.new(book_review_params)
-
     respond_to do |format|
       if @book_review.save
-        format.html { redirect_to book_review_url(@book_review), notice: "Book review was successfully created." }
+        format.html { redirect_back fallback_location: root_path, notice: "Book review was successfully created." }
         format.json { render :show, status: :created, location: @book_review }
       else
         format.html { render :new, status: :unprocessable_entity }
