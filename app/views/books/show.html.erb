@@ -28,7 +28,7 @@
 <p>Review list</p>
 <ul>
   <% @book.book_reviews.reverse.each do |review| %>
-    <li><%= review.review %> (<%= review.user_id %>) </li>
+    <li><%= review.review %> (<%= review.user.name.capitalize() %>) </li>
   <% end %>
 </ul>
 <%= link_to 'Edit', edit_book_path(@book) %> |
